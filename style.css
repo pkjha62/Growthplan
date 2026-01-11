@@ -1,25 +1,19 @@
 /* =====================
    GLOBAL RESET & ROOT
 ===================== */
-*,
-*::before,
-*::after {
+*{
   box-sizing: border-box;
 }
 
 :root {
-  --primary-color: #0f4c75;
   --secondary-color: #1b262c;
-  --accent-green: #25D366;
-  --bg-light: #f4f6f8;
   --text-dark: #222;
-  --shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: var(--bg-light);
+  background-color: #ddd2d2;
   color: var(--text-dark);
   line-height: 1.6;
 }
@@ -74,7 +68,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: #1b262c;
   font-size: 0.85rem;
   font-weight: 600;
   padding: 8px 14px;
@@ -82,7 +76,7 @@ nav a {
 }
 
 nav a:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.171);
 }
 
 /* =====================
@@ -90,7 +84,7 @@ nav a:hover {
 ===================== */
 .hero {
   padding: 40px 15px;
-  background: linear-gradient(#00000080,#00000080), url('./Assats/bgimg.png');
+  background: linear-gradient(#00000059,#00000080), url('./Assats/bgimg.png');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -98,6 +92,7 @@ nav a:hover {
 }
 
 .hero h2 {
+  color: #ddd2d2;
   font-size: 1.4rem;
   margin-bottom: 20px;
 }
@@ -149,6 +144,23 @@ h2 {
 /* =====================
    LIST STYLE
 ===================== */
+.home_ul{
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+}
+
+.home_ul li{
+  background: #f9f9f9;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -156,6 +168,7 @@ ul {
   grid-template-columns: 1fr;
   gap: 12px;
 }
+
 
 ul li {
   background: #f9f9f9;
@@ -226,6 +239,7 @@ ul li::before {
   flex-direction: column;
   gap: 10px;
   z-index: 1000;
+   background: transparent;
 }
 
 .cta a {
@@ -235,7 +249,7 @@ ul li::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
 }
 
 .cta-icon {
