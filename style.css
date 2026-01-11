@@ -1,0 +1,292 @@
+/* =====================
+   GLOBAL RESET & ROOT
+===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #0f4c75;
+  --secondary-color: #1b262c;
+  --accent-green: #25D366;
+  --bg-light: #f4f6f8;
+  --text-dark: #222;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* =====================
+   HEADER (MOBILE FIRST)
+===================== */
+header {
+  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#0f2027);
+  background-size: 400% 400%;
+  color: #fff;
+  text-align: center;
+  padding: 18px 12px;
+  animation: gradientMove 10s ease infinite;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: linear-gradient(-45deg,#e7cece,#bdc9db,#cac1df,#dfd2ba);
+  background-size: 400% 400%;
+  animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+nav a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+  padding: 40px 15px;
+  background: linear-gradient(#00000080,#00000080), url('./Assats/bgimg.png');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.call { background: var(--primary-color); }
+.whatsapp { background: var(--accent-green); }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* =====================
+   CONTENT SECTIONS
+===================== */
+section {
+  background: white;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 10px;
+}
+
+/* =====================
+   LIST STYLE
+===================== */
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+ul li {
+  background: #f9f9f9;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+ul li::before {
+  content: "✓";
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* =====================
+   ROOM CARDS
+===================== */
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.room-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.room-card:hover {
+  transform: translateY(-6px);
+}
+
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.room-card h3 {
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+/* =====================
+   MAP
+===================== */
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* =====================
+   FLOATING CTA
+===================== */
+.cta {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.cta a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.cta-icon {
+  width: 65%;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* =====================
+   TABLET (≥768px)
+===================== */
+@media (min-width: 768px) {
+  header h1 { font-size: 2rem; }
+  .hero h2 { font-size: 1.8rem; }
+
+  ul {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .room-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+/* =====================
+   DESKTOP (≥1024px)
+===================== */
+@media (min-width: 1024px) {
+  nav {
+    justify-content: center;
+    gap: 25px;
+  }
+
+  section {
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+
+  .room-grid {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .map iframe {
+    height: 420px;
+  }
+}
