@@ -6,9 +6,9 @@
 
 /* ROOT */
 :root {
-  --primary-color: #2c5364;
+  --primary-color: #2d596b8a;
   --secondary-color: #1b262c;
-  --accent-green: #25d366;
+  --accent-green: #25d36586;
   --shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -70,10 +70,9 @@ header {
   top: 65px;
   left: 0;
   width: 100%;
-  /* background: white; */
   display: none;
   flex-direction: column;
-   background: linear-gradient(
+  background: linear-gradient(
     -45deg,
     #f6d365,
     #fda085,
@@ -153,8 +152,14 @@ header {
   font-weight: 600;
 }
 
-/* .call { background: var(--primary-color); } */
-/* .whatsapp { background: var(--accent-green); } */
+.btn_call { 
+  background: var(--primary-color);
+  box-shadow: var(--shadow);
+} 
+.btn_whatsapp { 
+  box-shadow: var(--shadow);
+  background: var(--accent-green); 
+}
 
 /* SECTION */
 section {
