@@ -233,8 +233,8 @@ ul li::before {
 ===================== */
 .cta {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -243,17 +243,26 @@ ul li::before {
 }
 
 .cta a {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  /* border-radius: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
   /* box-shadow: var(--shadow); */
 }
 
+.cta a:hover {
+  transform: translateY(-3px);
+  border-radius: 15px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .cta-icon {
-  width: 65%;
+  width: 68px;
+  height: 68px;
 }
 
 /* =====================
