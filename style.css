@@ -1,255 +1,219 @@
-/* =====================
-   GLOBAL RESET & ROOT
-===================== */
-*{
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* ROOT */
 :root {
+  --primary-color: #2c5364;
   --secondary-color: #1b262c;
-  --text-dark: #222;
+  --accent-green: #25d366;
+  --shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* BODY */
 body {
-  margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #ddd2d2;
-  color: var(--text-dark);
-  line-height: 1.6;
+  background: #f2f2f2;
+  color: #222;
 }
 
-/* =====================
-   HEADER (MOBILE FIRST)
-===================== */
+/* HEADER */
 header {
-  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#0f2027);
+  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364);
   background-size: 400% 400%;
-  color: #fff;
+  animation: gradientMove 8s infinite;
   text-align: center;
-  padding: 18px 12px;
-  animation: gradientMove 10s ease infinite;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.6rem;
-}
-
-header p {
-  font-size: 0.9rem;
-  opacity: 0.9;
+  color: #fff;
+  padding: 20px;
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-/* =====================
-   NAVIGATION
-===================== */
-nav {
+/* NAVBAR */
+.navbar {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  background: linear-gradient(-45deg,#e7cece,#bdc9db,#cac1df,#dfd2ba);
-  background-size: 400% 400%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  /* background: #fff; */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow);
+  background: linear-gradient(-45deg,#e7cece,#bdc9db,#cac1df,#dfd2ba); 
+  background-size: 300% 300%; 
   animation: gradientFlow 6s ease infinite;
 }
-
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes gradientFlow { 
+  0% { background-position: 0% 50%; } 
+  50% { background-position: 100% 50%; } 
+  100% { background-position: 0% 50%; } 
 }
 
-nav a {
+.nav-brand {
+  font-weight: 700;
+}
+
+.nav-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  /* background: white; */
+  display: none;
+  flex-direction: column;
+   background: linear-gradient(
+    -45deg,
+    #f6d365,
+    #fda085,
+    #84fab0,
+    #8fd3f4,
+    #cfd9df
+  );
+
+  background-size: 400% 400%;
+  animation: navbarGradient 8s ease infinite;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+@keyframes navbarGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.nav-links a {
+  padding: 14px;
   text-decoration: none;
-  color: #1b262c;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 20px;
+  color: #000;
+  border-bottom: 1px solid #eee;
 }
 
-nav a:hover {
-  background: rgba(0, 0, 0, 0.171);
+.nav-links.active {
+  display: flex;
 }
 
-/* =====================
-   HERO SECTION
-===================== */
+/* DESKTOP NAV */
+@media (min-width:768px) {
+  .nav-toggle { display: none; }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
+
+  .nav-links a {
+    border: none;
+    padding: 8px 16px;
+  }
+}
+
+/* HERO */
 .hero {
-  padding: 40px 15px;
-  background: linear-gradient(#00000059,#00000080), url('./Assats/bgimg.png');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(#0006,#0006),
+    url('./Assats/bgimg.png') center/cover;
   text-align: center;
-  color: white;
+  padding: 60px 15px;
+  color: #fff;
 }
 
 .hero h2 {
-  color: #ddd2d2;
-  font-size: 1.4rem;
   margin-bottom: 20px;
 }
 
-/* =====================
-   BUTTONS
-===================== */
+/* BUTTONS */
 .btn {
   display: block;
-  width: 100%;
   max-width: 260px;
   margin: 10px auto;
   padding: 12px;
   border-radius: 50px;
-  text-align: center;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
 }
 
-.call { background: var(--primary-color); }
-.whatsapp { background: var(--accent-green); }
+/* .call { background: var(--primary-color); } */
+/* .whatsapp { background: var(--accent-green); } */
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-/* =====================
-   CONTENT SECTIONS
-===================== */
+/* SECTION */
 section {
-  background: white;
-  margin: 16px;
+  background: #fff;
+  margin: 18px;
   padding: 20px;
   border-radius: 14px;
   box-shadow: var(--shadow);
 }
 
-h2 {
-  font-size: 1.2rem;
-  color: var(--secondary-color);
-  margin-bottom: 16px;
-  border-left: 4px solid var(--primary-color);
-  padding-left: 10px;
-}
-
-/* =====================
-   LIST STYLE
-===================== */
-.home_ul{
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-
-}
-
-.home_ul li{
-  background: #f9f9f9;
-  padding: 14px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-}
-
+/* LIST */
 ul {
   list-style: none;
-  padding: 0;
   display: grid;
-  grid-template-columns: 1fr;
   gap: 12px;
 }
-
 
 ul li {
   background: #f9f9f9;
   padding: 14px;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
 }
 
 ul li::before {
-  content: "✓";
+  content: "✓ ";
   color: var(--primary-color);
   font-weight: bold;
-  margin-right: 10px;
 }
 
-/* =====================
-   ROOM CARDS
-===================== */
+/* ROOMS */
 .room-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 25px;
-}
-
-.room-card {
-  padding: 18px;
-  border-radius: 16px;
-  background: white;
-  box-shadow: var(--shadow);
-  transition: 0.3s;
-}
-
-.room-card:hover {
-  transform: translateY(-6px);
+  gap: 20px;
 }
 
 .room-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
 }
 
-.room-card h3 {
-  margin: 12px 0;
-  font-size: 1.1rem;
-}
-
-/* =====================
-   MAP
-===================== */
-.map iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 12px;
-  border: none;
-}
-
-/* =====================
-   FLOATING CTA
-===================== */
+/* CTA FLOAT */
 .cta {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   z-index: 1000;
-   background: transparent;
+  background: transparent;
 }
 
 .cta a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80px;
   height: 80px;
-  /* border-radius: 50%; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* box-shadow: var(--shadow); */
 }
 
 .cta a:hover {
@@ -260,56 +224,35 @@ ul li::before {
     0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+/* SVG / ICON CONTROL */
 .cta-icon {
-  width: 68px;
-  height: 68px;
+  width: 80%;
+  height: 80%;
+  max-width: 82px;
+  max-height: 82px;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* MAP */
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+}
+
 footer {
-  text-align: center;
-  padding: 25px;
+  text-align: center; 
+  padding: 25px; 
   font-size: 0.85rem;
   color: #777;
 }
 
-/* =====================
-   TABLET (≥768px)
-===================== */
-@media (min-width: 768px) {
-  header h1 { font-size: 2rem; }
-  .hero h2 { font-size: 1.8rem; }
-
-  ul {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .room-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+/* RESPONSIVE GRID */
+@media (min-width:768px) {
+  .room-grid { grid-template-columns: repeat(2,1fr); }
 }
 
-/* =====================
-   DESKTOP (≥1024px)
-===================== */
-@media (min-width: 1024px) {
-  nav {
-    justify-content: center;
-    gap: 25px;
-  }
-
-  section {
-    max-width: 1000px;
-    margin: 30px auto;
-  }
-
-  .room-grid {
-    grid-template-columns: repeat(3,1fr);
-  }
-
-  .map iframe {
-    height: 420px;
-  }
+@media (min-width:1024px) {
+  .room-grid { grid-template-columns: repeat(3,1fr); }
+  section { max-width: 1000px; margin: 30px auto; }
 }

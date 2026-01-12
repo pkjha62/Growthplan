@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="./Assats/logo.png">
-  <title>Shivam Guest House | Deoghar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivam Guest House | Deoghar</title>
+  <link rel="icon" href="./Assats/logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,16 @@
   <p>Comfortable Stay Near Baba Baidyanath Dham</p>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Rooms</a>
-  <a href="contact.html">Contact</a>
+<nav class="navbar">
+  <div class="nav-brand">Shivam Guest House</div>
+  <div class="nav-toggle" id="navToggle">☰</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Rooms</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -50,6 +55,16 @@
 <footer>
   <p>© 2026 Shivam Guest House</p>
 </footer>
+
+<script>
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+
+  toggle.addEventListener("click", () => {
+    links.classList.toggle("active");
+  });
+</script>
+
 
 </body>
 </html>
